@@ -2,6 +2,8 @@ package pack;
 
 import com.birosoft.liquid.LiquidLookAndFeel;
 import gui.Login;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -16,7 +18,7 @@ import utils.ManagerArchivo;
 
 /**
  *
- * @author [GVM - MABH - LCOS]
+ * @author [MABH - LCOS - EOS - YPC]
  */
 public class Main {
 
@@ -25,7 +27,9 @@ public class Main {
      */
     public static void main(String[] args) {
         style();
-        new Login();
+        SimpleDateFormat fomato = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+        System.out.println(fomato.format(new Date()));
+        //new Login();
     }
     
     public static void style() {
