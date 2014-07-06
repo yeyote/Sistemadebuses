@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author [GVM - MABH - LCOS]
+ * @author [MABH - LCOS - EOS - YPC]
  */
 public abstract class SQL {
     

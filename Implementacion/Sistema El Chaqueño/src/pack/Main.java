@@ -18,7 +18,7 @@ import utils.ManagerArchivo;
 
 /**
  *
- * @author [MABH - LCOS - EOS - YPC]
+ * @author [MABH - LCOS - ELOS - YPC]
  */
 public class Main {
 

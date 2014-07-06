@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author [GVM - MABH - LCOS]
+ * @author [MABH - LCOS - EOS - YPC]
  */
 public class ManagerArchivo {
 

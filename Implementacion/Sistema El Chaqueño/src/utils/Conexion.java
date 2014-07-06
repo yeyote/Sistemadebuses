@@ -2,7 +2,7 @@ package utils;
 
 /**
  *
- * @author [GVM - MABH - LCOS]
+ * @author [MABH - LCOS - EOS - YPC]
  */
 
 import java.sql.Connection;

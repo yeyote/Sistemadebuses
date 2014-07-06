@@ -16,7 +16,7 @@ import utils.SQL;
 
 /**
  *
- * @author Gustavo Vargas M
+ * @author [ MABH - LCOS - ELOS - YPC]
  */
 public class Login extends javax.swing.JFrame {
 

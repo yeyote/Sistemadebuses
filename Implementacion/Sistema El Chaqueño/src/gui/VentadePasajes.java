@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author DOCENTES
+ * @author [MABH - LCOS - ELOS - YPC]
  */
 public class VentadePasajes extends javax.swing.JPanel {
 
