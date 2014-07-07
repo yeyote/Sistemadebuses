@@ -1,6 +1,7 @@
 package pack;
 
 import com.birosoft.liquid.LiquidLookAndFeel;
+import gui.AdminSistema;
 import gui.Administracion;
 import gui.Encargado;
 import gui.Login;
@@ -18,7 +19,6 @@ import utils.ManagerArchivo;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author [MABH - LCOS - ELOS - YPC]
@@ -30,10 +30,9 @@ public class Main {
      */
     public static void main(String[] args) {
         style();
-        new Encargado();
-        //new Login();
+        login = new Login();
     }
-    
+
     public static void style() {
         try {
             javax.swing.UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
@@ -42,11 +41,21 @@ public class Main {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static void iniciarSecion(int id_user){
-        
+
+    public static void iniciarSecion(int rango) {
+        if (rango == Login.ADMINISTRADOR) {
+            new AdminSistema();
+        }
+        if (rango == Login.ENCARGADO) {
+            new Encargado();
+        }
+        if (rango == Login.GERENTE) {
+            new Administracion();
+        }
+        login.dispose();
     }
-    
+
+    public static Login login;
     public static String db;
     public static String host;
     public static String user;

@@ -6,6 +6,9 @@
 
 package gui;
 
+import pack.Main;
+import utils.SQL;
+
 /**
  *
  * @author DOCENTES
@@ -18,6 +21,8 @@ public class Administracion extends javax.swing.JFrame {
     public Administracion() {
         initComponents();
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setTitle("PANEL DE ADMINISTRACION");       
     }
 
     /**
@@ -111,6 +116,11 @@ public class Administracion extends javax.swing.JFrame {
 
         jButton1.setText("Registrar Chofer");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -363,6 +373,16 @@ public class Administracion extends javax.swing.JFrame {
     private void jTextField8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField8MouseClicked
         jTextField8.selectAll();
     }//GEN-LAST:event_jTextField8MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nombre=jTextField1.getText();
+        String ci=jTextField2.getText();
+        String telefono=jTextField3.getText();
+        String brevet=jTextField4.getText();
+        String salario=jTextField5.getText();
+        String id_chofer="";
+        Main.con.ejecutar(SQL.registrarChofer(id_chofer, ci, salario, telefono, brevet));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

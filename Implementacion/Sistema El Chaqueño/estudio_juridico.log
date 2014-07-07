@@ -34,3 +34,30 @@
 [Mon Jul 07 03:28:44 BOT 2014] INICIO DEL PROGRAMA
 [Mon Jul 07 03:29:14 BOT 2014] INICIO DEL PROGRAMA
 [Mon Jul 07 03:39:30 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:00:26 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:02:12 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:02:29 BOT 2014] ERROR AL EJECUTAR SQL :'INSERT INTO `persona` (ci,nombre)VALUES('5422134','Mariela Vargas Torrez',);' :You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+[Mon Jul 07 05:02:54 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:03:10 BOT 2014] ERROR AL EJECUTAR SQL :'INSERT INTO `backup`(`sql`)VALUES("INSERT INTO `persona` (ci,nombre)VALUES('6552232','Juan Perez');");' :Table 'sistemadebuses.backup' doesn't exist
+[Mon Jul 07 05:47:15 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:47:27 BOT 2014] ERROR AL EJECUTAR SQL :'SELECT id_usu FROM `usuario` WHERE `user`='admin' AND `pass`='d033e22ae348aeb5660fc2140aec35850c4da997'' :Unknown column 'id_usu' in 'field list'
+[Mon Jul 07 05:47:27 BOT 2014] ERROR-> null
+[Mon Jul 07 05:48:29 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:49:00 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:49:05 BOT 2014] ERROR AL EJECUTAR SQL :'SELECT ci FROM `usuario` WHERE `user`='admin' AND `pass`='d033e22ae348aeb5660fc2140aec35850c4da997'' :Unknown column 'user' in 'where clause'
+[Mon Jul 07 05:49:05 BOT 2014] ERROR-> null
+[Mon Jul 07 05:50:11 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:52:52 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:54:46 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:56:04 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:58:54 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 05:59:07 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 06:16:46 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 07:33:13 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 07:34:09 BOT 2014] ERROR AL EJECUTAR SQL :'SELECT id_viaje FROM viaje WHERE id_destino='1' AND DATE(fecha)='2014-07-07');' :You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+[Mon Jul 07 07:35:46 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 07:36:19 BOT 2014] ERROR AL EJECUTAR SQL :'INSERT INTO `persona` (ci,nombre)VALUES('Documento de Identidad','Nombre del pasajero');' :Data truncation: Data too long for column 'ci' at row 1
+[Mon Jul 07 07:36:19 BOT 2014] ERROR AL EJECUTAR SQL :'SELECT id_viaje FROM viaje WHERE id_destino='1' AND DATE(fecha)='2014-07-07');' :You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+[Mon Jul 07 08:36:37 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 08:37:19 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 08:38:31 BOT 2014] ERROR AL EJECUTAR SQL :'INSERT INTO `chofer`(`id_chofer`,`ci`,`salario`,`telefono`,`brevet`) VALUES ( 'NULL','4223123','2600','75523621','77774222');' :Incorrect integer value: 'NULL' for column 'id_chofer' at row 1

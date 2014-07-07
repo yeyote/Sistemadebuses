@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package gui;
 
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pack.Main;
 import utils.ManagerArchivo;
@@ -136,46 +138,62 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jTextField1.transferFocus();
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             ingresar();
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
-    private int consultarDatos(){        
-        int id = 0;
-        try{
+    private String consultarDatos() {
+        String ci = "";
+        try {
             ResultSet rs = Main.con.consultar(SQL.iniciarSecion(jTextField1.getText(), jPasswordField1.getText()));
-            while(rs.next()){
-                id = rs.getInt("id_user");
+            while (rs.next()) {
+                ci += rs.getString("ci");
             }
-        }catch(Exception e){
-            ManagerArchivo.escribirLog("["+new Date()+"] ERROR-> "+e.getMessage());
+        } catch (Exception e) {
+            ManagerArchivo.escribirLog("[" + new Date() + "] ERROR-> " + e.getMessage());
         }
-        return id;
+        return ci;
     }
-    
-    private void ingresar(){
-        int id = consultarDatos();
-        if (id!=0){
-            Main.iniciarSecion(id);
-        }else{  
+
+    private void ingresar() {
+        String ci = consultarDatos();
+        if (!ci.equals("")) {
+            Main.iniciarSecion(consultarTipoUsuario(ci));
+        } else {
             intentos--;
-            if(intentos>0)
-                JOptionPane.showMessageDialog(rootPane, "Usuario o Contraseña equivocada\ntiene "+intentos+" intentos");
-            else{
-                JOptionPane.showMessageDialog(null,"Ha superado el número máximo de intentos","ERROR",2);
-                ManagerArchivo.escribirLog("["+new Date()+"] ERROR AL INTENTAR LOGEAR CON LA CUENTA (NUMERO DE INTENTOS SUPERADOS): "+jTextField1.getText());
+            if (intentos > 0) {
+                JOptionPane.showMessageDialog(rootPane, "Usuario o Contraseña equivocada\ntiene " + intentos + " intentos");
+            } else {
+                JOptionPane.showMessageDialog(null, "Ha superado el número máximo de intentos", "ERROR", 2);
+                ManagerArchivo.escribirLog("[" + new Date() + "] ERROR AL INTENTAR LOGEAR CON LA CUENTA (NUMERO DE INTENTOS SUPERADOS): " + jTextField1.getText());
                 System.exit(intentos);
             }
         }
     }
-    
+
+    public int consultarTipoUsuario(String ci) {
+        ResultSet rs = Main.con.consultar(SQL.consultarTipoUsuario(ci));
+        try {
+            while (rs.next()) {
+                return rs.getInt("rango");
+            }
+        } catch (SQLException ex) {
+            ManagerArchivo.escribirLog("[" + new Date() + "] ERROR AL CONSULTAR TIPO DE USUARO: " + ex.getMessage());
+        }
+        return -1;
+    }
+
+    public static int ADMINISTRADOR = 2;
+    public static int GERENTE = 1;
+    public static int ENCARGADO = 0;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

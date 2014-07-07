@@ -12,6 +12,8 @@
  */
 package utils;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
@@ -45,7 +47,7 @@ public abstract class SQL {
     }
 
     public static final SimpleDateFormat formatoDateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    
+
     public static final SimpleDateFormat formatDates = new SimpleDateFormat("yyyy-MM-dd");
 
     ////////////////////////////REGISTRO DE DATOS/////////////////////////////
@@ -105,9 +107,18 @@ public abstract class SQL {
                 + observacion + "');";
     }
 
+    public static String registrarChofer(String id_chofer, String ci, String salario, String telefono, String brevet) {
+        return "INSERT INTO `chofer`(`id_chofer`,`ci`,`salario`,`telefono`,`brevet`) VALUES ( '"
+                + "NULL"+"','"
+                + ci + "','"
+                + salario + "','"
+                + telefono + "','"
+                + brevet+"');"; 
+    }
+
     //////////////////////////CONSULTA DE DATOS////////////////////////////////
     public static String iniciarSecion(String user, String pass) {
-        return "SELECT id_usu FROM `usuario` WHERE `user`='" + user + "' AND `pass`='" + sha1(pass) + "'";
+        return "SELECT ci FROM `usuario` WHERE `id_user`='" + user + "' AND `password`='" + sha1(pass) + "'";
     }
 
     ///////////////////////// VISTAS DE DATOS//////////////////////////////////
@@ -117,14 +128,45 @@ public abstract class SQL {
                 + "ON `persona`.`ci` = `usuario`.`ci` AND `persona`.`id_titulo` = `titulo`.`id_titulo`"
                 + "WHERE `id_user`='" + id + "';";
     }
-    
-    
+
     // consultas yeyo
-    
-    public static String mostrarAsientos(int id_viaje){
-        return "SELECT asiento FROM boleto WHERE id_viaje='"+id_viaje+"';";
+    public static String mostrarAsientos(int id_viaje) {
+        return "SELECT asiento FROM boleto WHERE id_viaje='" + id_viaje + "';";
     }
-    
-    public static String insertarPasaje(){
+
+    public static String insertarPersona(String ci, String nombre) {
+        return "INSERT INTO `persona` (ci,nombre)VALUES('"
+                + ci + "','"
+                + nombre + "');";
+    }
+
+    public static String insertarBoleto(int id_boleto, int ci, int id_viaje, float costo, int asiento) {
+        return "INSERT INTO `persona` (id_boleto,ci,id_viaje,costo,asiento)VALUES('"
+                + id_boleto + "','"
+                + ci + "','"
+                + id_viaje + "','"
+                + costo + "','"
+                + asiento + "');";
+    }
+
+    public static String insertarBoletoViaje(int id_boleto, String ci, String id_viaje, String costo, String asiento) {
+        return "INSERT INTO `persona` (id_boleto,ci,id_viaje,costo,asiento)VALUES('"
+                + id_boleto + "','"
+                + ci + "','"
+                + id_viaje + "','"
+                + costo + "','"
+                + asiento + "');";
+    }
+
+    public static String mostrar5Viaje() {
+        return "SELECT * FROM `viaje` ORDER BY id_viaje LIMIT 0,5;'";
+    }
+
+    public static String consultarTipoUsuario(String ci) {
+        return "SELECT rango FROM usuario WHERE ci='" + ci + "';";
+    }
+
+    public static String consultarIdDestino(int id_destino, Date id_fecha) {
+        return "SELECT id_viaje FROM viaje WHERE id_destino='" + id_destino + "' AND DATE(fecha)='" + formatDates.format(id_fecha) + "');";
     }
 }
