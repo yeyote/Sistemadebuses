@@ -1,7 +1,10 @@
 package pack;
 
 import com.birosoft.liquid.LiquidLookAndFeel;
+import gui.Administracion;
+import gui.Encargado;
 import gui.Login;
+import gui.VentaPasajes;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -27,8 +30,7 @@ public class Main {
      */
     public static void main(String[] args) {
         style();
-        SimpleDateFormat fomato = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
-        System.out.println(fomato.format(new Date()));
+        new Encargado();
         //new Login();
     }
     

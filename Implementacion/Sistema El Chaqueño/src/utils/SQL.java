@@ -117,4 +117,14 @@ public abstract class SQL {
                 + "ON `persona`.`ci` = `usuario`.`ci` AND `persona`.`id_titulo` = `titulo`.`id_titulo`"
                 + "WHERE `id_user`='" + id + "';";
     }
+    
+    
+    // consultas yeyo
+    
+    public static String mostrarAsientos(int id_viaje){
+        return "SELECT asiento FROM boleto WHERE id_viaje='"+id_viaje+"';";
+    }
+    
+    public static String insertarPasaje(){
+    }
 }
