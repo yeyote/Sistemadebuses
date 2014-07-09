@@ -1,4 +1,4 @@
-[Sun Jul 06 17:02:21 BOT 2014] Creacion Log de Programa "estudio_juridico.log"
+[Sun Jul 06 17:02:21 BOT 2014] 
 [Sun Jul 06 17:02:20 BOT 2014] INICIO DEL PROGRAMA
 [Sun Jul 06 17:03:43 BOT 2014] INICIO DEL PROGRAMA
 [Sun Jul 06 17:04:18 BOT 2014] INICIO DEL PROGRAMA
@@ -61,3 +61,10 @@
 [Mon Jul 07 08:36:37 BOT 2014] INICIO DEL PROGRAMA
 [Mon Jul 07 08:37:19 BOT 2014] INICIO DEL PROGRAMA
 [Mon Jul 07 08:38:31 BOT 2014] ERROR AL EJECUTAR SQL :'INSERT INTO `chofer`(`id_chofer`,`ci`,`salario`,`telefono`,`brevet`) VALUES ( 'NULL','4223123','2600','75523621','77774222');' :Incorrect integer value: 'NULL' for column 'id_chofer' at row 1
+[Mon Jul 07 16:07:38 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 16:09:06 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 16:09:41 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 16:16:47 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 16:19:07 BOT 2014] INICIO DEL PROGRAMA
+[Mon Jul 07 16:21:41 BOT 2014] ERROR AL EJECUTAR SQL :'INSERT INTO `chofer`(`id_chofer`,`ci`,`salario`,`telefono`,`brevet`) VALUES ( 'NULL','8871254','1800','76652532','2321321');' :Incorrect integer value: 'NULL' for column 'id_chofer' at row 1
+[Mon Jul 07 17:06:06 BOT 2014] INICIO DEL PROGRAMA
